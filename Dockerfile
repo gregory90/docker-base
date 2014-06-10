@@ -11,6 +11,7 @@ CMD ["/sbin/my_init"]
 
 # Install etcdctl
 RUN \
+  apt-get install -y wget && \
   cd /tmp && \
   wget https://github.com/coreos/etcd/releases/download/v0.4.3/etcd-v0.4.3-linux-amd64.tar.gz && \
   tar xvzf etcd-v0.4.3-linux-amd64.tar.gz && \
