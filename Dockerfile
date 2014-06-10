@@ -11,11 +11,12 @@ CMD ["/sbin/my_init"]
 
 # Install etcdctl
 RUN \
-  apt-get install -y wget && \
+  DEBIAN_FRONTEND=noninteractive apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y wget && \
   cd /tmp && \
-  wget https://github.com/coreos/etcd/releases/download/v0.4.3/etcd-v0.4.3-linux-amd64.tar.gz && \
+  wget -q https://github.com/coreos/etcd/releases/download/v0.4.3/etcd-v0.4.3-linux-amd64.tar.gz && \
   tar xvzf etcd-v0.4.3-linux-amd64.tar.gz && \
-  cd etcd-v0.4.3-linux-amd64.tar.gz && \
+  cd etcd-v0.4.3-linux-amd64 && \
   cp -f etcdctl /usr/local/bin
 
 # Clean up APT when done.
