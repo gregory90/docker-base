@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 RUN \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
