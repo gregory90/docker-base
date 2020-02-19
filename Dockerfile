@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:buster
 
 RUN \
   DEBIAN_FRONTEND=noninteractive apt-get update && \
